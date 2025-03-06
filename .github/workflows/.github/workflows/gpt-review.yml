@@ -1,0 +1,17 @@
+name: GPT Code Review
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Run GPT Review Action
+        uses: gpt-review/your-action@v1
+        with:
+          API_TOKEN: ${{ secrets.GPT_API_TOKEN }}
